@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages {
+        stage('Git') {
+            steps {
+              checkout([$class: 'GitSCM', 
+                branches: [[name: '*/main']],
+                doGenerateSubmoduleConfigurations: false,
+                extensions: [[$class: 'CleanCheckout']],
+                submoduleCfg: [], 
+                userRemoteConfigs: [[url: 'https://github.com/nnsnarasimha/websitedeployment.git']]])
+              sh "ls -ltr"
+          }
+        }
+    }
+}
