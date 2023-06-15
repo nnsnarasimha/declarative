@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Dev'){
             steps {
-                sh' git clone 'https://github.com/nnsnarasimha/websites.git /var/www/html'
+                sh 'git clone https://github.com/nnsnarasimha/websites.git /var/www/html'
             }
         }
     }
