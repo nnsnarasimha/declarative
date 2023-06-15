@@ -16,6 +16,7 @@ pipeline {
             steps {
                 sh 'sudo rm -rf /var/www/html/*'
                 sh 'sudo rm -rf /var/www/html/.git'
+                sh 'sudo systemctl start httpd'
                 sh 'sudo git clone https://github.com/nnsnarasimha/websites.git /var/www/html'
             }
         }
