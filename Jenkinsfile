@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Git') {
+        stage('Git Checkout') {
             steps {
               checkout([$class: 'GitSCM', 
                 branches: [[name: '*/main']],
@@ -11,6 +11,11 @@ pipeline {
                 userRemoteConfigs: [[url: 'https://github.com/nnsnarasimha/websitedeployment.git']]])
               sh "ls -ltr"
           }
+        }
+        stage('Dev'){
+            steps {
+                sh' git clone 'https://github.com/nnsnarasimha/websites.git /var/www/html'
+            }
         }
     }
 }
