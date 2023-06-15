@@ -15,7 +15,7 @@ pipeline {
         stage('Dev'){
             steps {
                 sh 'sudo rm -rf /var/www/html/*'
-                sh 'sudo rm -rf /var/www/html/.git
+                sh 'sudo rm -rf /var/www/html/.git'
                 sh 'sudo git clone https://github.com/nnsnarasimha/websites.git /var/www/html'
             }
         }
